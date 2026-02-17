@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sundarbans: The Last Tiger</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gl-canvas"></canvas>
+        
+        <div id="ui-layer">
+            <div id="compass">
+                <div id="compass-needle"></div>
+            </div>
+            <div id="stats">
+                <div class="stat">⛽ <span id="fuel">100%</span></div>
+                <div class="stat">🐅 <span id="tiger-dist">Unknown</span></div>
+                <div class="stat">⏰ <span id="time">06:00</span></div>
+            </div>
+            <div id="minimap-container">
+                <canvas id="minimap"></canvas>
+            </div>
+        </div>
+
+        <div id="main-menu" class="screen">
+            <div class="menu-content">
+                <h1>SUNBARBANS</h1>
+                <h2>The Last Tiger</h2>
+                <div class="menu-decoration"></div>
+                <p class="subtitle">Navigate the mangrove maze. Survive the night.</p>
+                <button id="start-btn" class="menu-btn">Enter the Delta</button>
+                <div class="controls-hint">
+                    <span>WASD / Arrows</span> to move
+                    <span>Mouse</span> to look
+                    <span>Shift</span> for boost
+                </div>
+            </div>
+        </div>
+
+        <div id="game-over" class="screen hidden">
+            <div class="menu-content">
+                <h1 id="end-title">Mission Failed</h1>
+                <p id="end-reason">Your boat was destroyed</p>
+                <div class="final-stats">
+                    <div>Distance: <span id="final-dist">0</span> km</div>
+                    <div>Tiger Sighted: <span id="final-tiger">No</span></div>
+                </div>
+                <button id="restart-btn" class="menu-btn">Try Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js and addons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/geometries/DecalGeometry.js"></script>
+    
+    <!-- Game modules -->
+    <script src="js/utils/Noise.js"></script>
+    <script src="js/world/Water.js"></script>
+    <script src="js/world/Terrain.js"></script>
+    <script src="js/world/Vegetation.js"></script>
+    <script src="js/world/Atmosphere.js"></script>
+    <script src="js/entities/Boat.js"></script>
+    <script src="js/entities/Tiger.js"></script>
+    <script src="js/core/Input.js"></script>
+    <script src="js/core/Renderer.js"></script>
+    <script src="js/core/Game.js"></script>
+</body>
+</html>
